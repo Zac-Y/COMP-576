@@ -75,7 +75,13 @@ class NeuralNetwork(object):
         '''
 
         # YOU IMPLMENT YOUR actFun HERE
-        if (type.lower() == 'tanh'):
+        if type.lower() == "tanh":
+            return np.tanh(z)
+        elif type.lower() == "sigmoid":
+            return 1 / (1 + np.exp(-z))
+        elif type.lower() == "relu":
+            return np.maximum(0, z)
+
         return None
 
     def diff_actFun(self, z, type):
@@ -87,14 +93,7 @@ class NeuralNetwork(object):
         '''
 
         # YOU IMPLEMENT YOUR diff_actFun HERE
-        if type.lower() == "tanh":
-            return np.tanh(z)
-        elif type.lower() == "sigmoid":
-            return 1 / (1 + np.exp(-z))
-        elif type.lower() == "relu":
-            return np.maximum(0, z)
-        else:
-            return None
+
 
         return None
 
